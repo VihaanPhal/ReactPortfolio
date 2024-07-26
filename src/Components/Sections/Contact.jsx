@@ -109,7 +109,12 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     emailjs
-      .sendForm("gmail", "service_7rbv2z5", form.current, "SybVGsYS52j2TfLbi")
+      .sendForm(
+        "service_tlx58y6",
+        "template_n85ogjt",
+        form.current,
+        "f0ONplS3lviKpi4C6"
+      )
       .then(
         (result) => {
           alert("Message Sent");
