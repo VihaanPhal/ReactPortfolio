@@ -1,4 +1,9 @@
-import { BrowserRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Sections/Hero";
@@ -10,6 +15,7 @@ import Education from "./Components/Sections/Education";
 import Experience from "./Components/Sections/Experience";
 import StartCanvas from "./Components/canvas/Stars";
 import Contact from "./Components/Sections/Contact";
+import Resume from "./Components/Resume";
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -33,30 +39,56 @@ const Wrapper = styled.div`
   width: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
 `;
+
 function App() {
+  const location = useLocation();
+  const isResumePage = location.pathname === "/resume";
+
   return (
     <ThemeProvider theme={darkTheme}>
-      <BrowserRouter>
-        <Navbar />
+      {!isResumePage && <Navbar />}
+      {!isResumePage && (
         <Body>
           <StartCanvas />
           <div>
-            <Hero />
-            <Wrapper>
-              <Skills />
-              <Experience />
-            </Wrapper>
-            <Projects />
-            <Wrapper>
-              <Education />
-              <Contact />
-            </Wrapper>
-            <Footer />
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Hero />
+                    <Wrapper>
+                      <Skills />
+                      <Experience />
+                    </Wrapper>
+                    <Projects />
+                    <Wrapper>
+                      <Education />
+                      <Contact />
+                    </Wrapper>
+                    <Footer />
+                  </>
+                }
+              />
+            </Routes>
           </div>
         </Body>
-      </BrowserRouter>
+      )}
+      {isResumePage && (
+        <Routes>
+          <Route path="/resume" element={<Resume />} />
+        </Routes>
+      )}
     </ThemeProvider>
   );
 }
 
-export default App;
+function AppWrapper() {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+}
+
+export default AppWrapper;

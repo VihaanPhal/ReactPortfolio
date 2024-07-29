@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { Bio } from "../../Data/Constants";
 import TypeWriter from "typewriter-effect";
 import HeroBgAnimation from "../HeroBgAnimation";
@@ -231,7 +232,13 @@ const HeroBg = styled.div`
     padding: 0 0px;
   }
 `;
+
 const Hero = () => {
+  const navigate = useNavigate();
+  const routeChange = () => {
+    let path = `/resume`;
+    navigate(path);
+  };
   return (
     <div id="About">
       <HeroSection>
@@ -264,8 +271,8 @@ const Hero = () => {
               <motion.div {...headContentAnimation}>
                 <Subtitle>{Bio.description}</Subtitle>
               </motion.div>
-
-              <ResumeButton href={Bio.resume} target="_blank">
+              {/* href={Bio.resume} */}
+              <ResumeButton onClick={routeChange} target="_blank">
                 Check Resume
               </ResumeButton>
             </HeroLeftSecion>
