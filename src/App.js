@@ -4,6 +4,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import styled, { ThemeProvider } from "styled-components";
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Sections/Hero";
@@ -86,6 +87,11 @@ function App() {
 function AppWrapper() {
   return (
     <Router>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>VihaanPhal</title>
+        <link rel="canonical" href="http://vihaanphal.vercel.app" />
+      </Helmet>
       <App />
     </Router>
   );
