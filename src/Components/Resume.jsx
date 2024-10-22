@@ -73,7 +73,7 @@ const Resume = () => {
     margin-bottom: 20px;
   `;
 
-  const pdfUrl = `${process.env.PUBLIC_URL}/VihaanResume_V8pdf.pdf`;
+  const pdfUrl = `${process.env.PUBLIC_URL}/V.pdf`;
 
   return (
     <Body>

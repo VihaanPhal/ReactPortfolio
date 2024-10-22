@@ -1,118 +1,183 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const shimmer = keyframes`
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+`;
 
 const Card = styled.div`
-  width: 330px;
-  height: 490px;
+  width: 340px;
+  height: 480px;
   background-color: ${({ theme }) => theme.card};
-  cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 24px;
   overflow: hidden;
-  padding: 26px 20px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  transition: all 0.5s ease-in-out;
+
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 50px 4px rgba(0, 0, 0, 0.6);
-    filter: brightness(1.1);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      ${({ theme }) => theme.primary}20 50%,
+      transparent 100%
+    );
+    animation: ${shimmer} 2s infinite;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
   }
 `;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+`;
+
 const Image = styled.img`
   width: 100%;
-  height: 180px;
-  background-color: ${({ theme }) => theme.white};
-  border-radius: 10px;
-  box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
-`;
-const Tags = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
-`;
-const Details = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0px;
-  padding: 0px 2px;
-`;
-const Title = styled.div`
-  font-size: 20px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_secondary};
-  overflow: hidden;
-  display: -webkit-box;
-  max-width: 100%;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
-const Date = styled.div`
-  font-size: 12px;
-  margin-left: 2px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 80};
-  @media only screen and (max-width: 768px) {
-    font-size: 10px;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+
+  ${Card}:hover & {
+    transform: scale(1.1);
   }
 `;
-const Description = styled.div`
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 99};
+
+const Content = styled.div`
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+  flex-grow: 1;
+`;
+
+const Title = styled.h3`
+  font-size: 24px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.text_primary};
+  margin: 0;
+  line-height: 1.2;
+`;
+
+const DateWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
+const DateIcon = styled.span`
+  font-size: 18px;
+`;
+
+const Date = styled.p`
+  font-size: 14px;
+  color: ${({ theme }) => theme.text_secondary};
+  margin: 0;
+`;
+
+const Description = styled.p`
+  font-size: 16px;
+  color: ${({ theme }) => theme.text_secondary};
+  margin: 0;
+  line-height: 1.5;
   overflow: hidden;
-  margin-top: 8px;
+  text-overflow: ellipsis;
   display: -webkit-box;
-  max-width: 100%;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
 `;
+
 const Members = styled.div`
   display: flex;
   align-items: center;
-  padding-left: 10px;
+  margin-top: auto;
 `;
+
 const Avatar = styled.img`
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  margin-left: -10px;
-  background-color: ${({ theme }) => theme.white};
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border: 3px solid ${({ theme }) => theme.card};
+  box-shadow: 0 0 0 2px ${({ theme }) => theme.primary};
+  transition: transform 0.3s ease;
+
+  &:not(:first-child) {
+    margin-left: -12px;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+  }
 `;
-const Button = styled.a`
-  color: ${({ theme }) => theme.primary};
+
+const ViewLink = styled.a`
+  color: magenta;
   text-decoration: none;
   font-weight: 600;
-  text-align: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  margin-top: auto;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const ProjectCard = ({ project }) => {
   return (
     <Card>
-      <Image src={project.image} />
-      <Tags></Tags>
-      <Details>
+      <ImageWrapper>
+        <Image src={project.image} alt={project.title} />
+      </ImageWrapper>
+      <Content>
         <Title>{project.title}</Title>
-        <Date>{project.date}</Date>
+        <DateWrapper>
+          <DateIcon>📅</DateIcon>
+          <Date>{project.date}</Date>
+        </DateWrapper>
         <Description>{project.description}</Description>
-      </Details>
-      <Members>
-        {project.member?.map((member) => (
-          <Avatar src={member.img} />
-        ))}
-      </Members>
-      <Button href={project.github} target="_blank">
-        View Code
-      </Button>
+        <Members>
+          {project.member?.map((member, index) => (
+            <Avatar key={index} src={member.img} alt={`Member ${index + 1}`} />
+          ))}
+        </Members>
+        <ViewLink
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View
+        </ViewLink>
+      </Content>
     </Card>
   );
 };

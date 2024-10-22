@@ -1,4 +1,7 @@
-import chatbott from "../Images/chatbott.png";
+import Interview from "../Images/I.png";
+import Stock from "../Images/S.png";
+import Pantry from "../Images/P.png";
+
 export const Bio = {
   name: "Vihaan Phal",
   roles: [
@@ -166,7 +169,7 @@ export const skills = [
       {
         name: "Adobe XD",
         image:
-          "https://camo.githubusercontent.com/c205ecbe12500177d102169d97bc1c17c545155fdf5ec78c08d54ac53e5b38c1/68747470733a2f2f63646e2e776f726c64766563746f726c6f676f2e636f6d2f6c6f676f732f61646f62652d78642e737667",
+          "data:image/png;base64,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",
       },
       {
         name: "Figma",
@@ -191,16 +194,38 @@ export const experiences = [
   {
     id: 0,
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNQ9kfceUh95zk9RdwX3UcX9fvZbESzmfg6g&s",
-    role: "Undergraduate Teaching Assistant (UGTA)",
+    role: "Undergraduate Teaching Assistant (UGTA) - FSE100",
     company: "Arizona State University",
-    date: "August 2023 – Present",
-    desc: "Facilitated learning of MATLAB in FSE100 and Swift in CSE335 for 50+ students, achieving a 95% proficiency rate in autonomous projects. Pioneered MapKit lab development for iOS app development course, focusing on geolocation and geocoding to enhance practical skills. Spearheaded the organization of the Battle Bots event, resulting in a 40% increase in student engagement and practical engineering skill application.",
-    skills: ["MATLAB", "Swift", "iOS Development", "Geolocation", "Geocoding"],
+    date: "August 2023 – December 2023",
+    desc: "Assisted in facilitating the learning of MATLAB for 50+ first-year engineering students. Helped students develop proficiency in autonomous projects with a 95% success rate. Organized hands-on workshops and provided guidance during lab sessions, fostering strong foundational engineering skills.",
+    skills: [
+      "MATLAB",
+      "Autonomous Projects",
+      "Teaching",
+      "Workshop Facilitation",
+    ],
     doc: "https://drive.google.com/file/d/1txFKZD3LNIXMc329jD9c995AU8LItOXK/view?usp=drive_link",
   },
   {
     id: 1,
-    img: "https://media.licdn.com/dms/image/D560BAQEwDJtFgIurqQ/company-logo_200_200/0/1709877730998?e=1726704000&v=beta&t=DP_vyW7Gw1d3_NLkzV6Kfcd906zAnQHmzuZ1oo6tSCw",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNQ9kfceUh95zk9RdwX3UcX9fvZbESzmfg6g&s",
+    role: "Undergraduate Teaching Assistant (UGTA) - CSE335",
+    company: "Arizona State University",
+    date: "December 2023 – May 2024",
+    desc: "Led lab sessions for Swift programming and iOS app development for 50+ students. Developed the MapKit lab for geolocation and geocoding, improving practical learning. Spearheaded the organization of the Battle Bots event, which boosted student engagement by 40% and enhanced their practical engineering skills.",
+    skills: [
+      "Swift",
+      "iOS Development",
+      "MapKit",
+      "Geolocation",
+      "Geocoding",
+      "Event Organization",
+    ],
+    doc: "https://drive.google.com/file/d/1txFKZD3LNIXMc329jD9c995AU8LItOXK/view?usp=drive_link",
+  },
+  {
+    id: 2,
+    img: "data:image/jpeg;base64,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",
     role: "Front-End Developer Intern",
     company: "Medical Directive",
     date: "August 2022 – December 2022",
@@ -248,6 +273,56 @@ export const education = [
 ];
 
 export const projects = [
+  {
+    id: 0,
+    title: "InterviewMe.AI - AI Interview Platform",
+    date: "August 2024",
+    description:
+      "Created a personalized AI-driven interview platform offering mock interviews and real-time feedback, developed using ReactJS, Node.js, and Clerk Authentication. The platform enhances interview preparation by utilizing a clean, intuitive UI and DrizzleORM for data management with PostgreSQL. Deployed on Vercel for seamless user experience.",
+    image: Interview,
+    tags: [
+      "ReactJS",
+      "Node.js",
+      "Clerk Authentication",
+      "DrizzleORM",
+      "PostgreSQL",
+      "AI",
+    ],
+    category: "web app",
+    github: "https://interview-me-ai.vercel.app/",
+    webapp: "https://interview-me-ai.vercel.app/",
+  },
+  {
+    id: 1,
+    title: "StockLearn - Stock Learning Platform",
+    date: "July 2024",
+    description:
+      "Developed a stock learning platform where users can invest dummy money into real-time stocks, offering features like portfolio management, stock price tracking, and buy/sell simulations. Built using ReactJS, Node.js, and MongoDB for authentication and database management. The platform delivers a smooth user experience with a Robinhood-inspired UI and is designed to help users understand stock trading fundamentals.",
+    image: Stock,
+    tags: [
+      "ReactJS",
+      "Node.js",
+      "MongoDB",
+      "Stock Market",
+      "Portfolio Management",
+    ],
+    category: "web app",
+    github: "https://github.com/VihaanPhal/StockLearn",
+    webapp: "https://stocklearn.vercel.app/",
+  },
+  {
+    id: 2,
+    title: "AI Pantry Manager - Object Detection Platform",
+    date: "August 2024",
+    description:
+      "Developed an AI-powered pantry management web app using the COCO-SSD model for object detection to identify pantry items and track their quantities. Built with NextJS, the platform leverages real-time object recognition to update inventory and notify users about low stock or expiration dates. The app also generates automated shopping lists and features a user-friendly interface for efficient pantry organization.",
+    image: Pantry,
+    tags: ["NextJS", "COCO-SSD", "Object Detection", "AI", "Pantry Management"],
+    category: "machine learning",
+    github: "https://github.com/VihaanPhal/AIPantryManager",
+    webapp: "https://aipantrystore.vercel.app/",
+  },
+
   {
     id: 0,
     title: "MovieLand - React WebApp",
@@ -301,7 +376,7 @@ export const projects = [
     webapp: "https://restaurantfinder.netlify.app/",
   },
   {
-    id: 3,
+    id: 4,
     title: "Virtual Drag & Drop",
     date: "Jan 2023",
     description:
