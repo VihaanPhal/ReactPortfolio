@@ -1,6 +1,7 @@
 import Interview from "../Images/I.png";
 import Stock from "../Images/S.png";
 import Pantry from "../Images/P.png";
+import MonkeytypeClone from "../Images/M.png";
 
 export const Bio = {
   name: "Vihaan Phal",
@@ -312,6 +313,18 @@ export const projects = [
   },
   {
     id: 2,
+    title: "Monkeytype Clone - Typing Speed Test Web App",
+    date: "October 2024",
+    description:
+      "Developed a feature-rich clone of Monkeytype, a typing speed test web application, designed to help users improve their typing skills through customizable typing tests. Built with ReactJS for dynamic UI, incorporating state management and real-time word generation for enhanced user experience. Deployed on Vercel for fast and seamless access.",
+    image: MonkeytypeClone,
+    tags: ["ReactJS", "JavaScript", "CSS", "Typing Test", "UI/UX", "Vercel"],
+    category: "web app",
+    github: "https://monkeytype-clone-sage.vercel.app/",
+    webapp: "https://monkeytype-clone-sage.vercel.app/",
+  },
+  {
+    id: 3,
     title: "AI Pantry Manager - Object Detection Platform",
     date: "August 2024",
     description:
@@ -324,7 +337,7 @@ export const projects = [
   },
 
   {
-    id: 0,
+    id: 4,
     title: "MovieLand - React WebApp",
     date: "March 2024",
     description:
@@ -337,7 +350,7 @@ export const projects = [
     webapp: "https://movieland.vercel.app/",
   },
   {
-    id: 1,
+    id: 5,
     title: "ASP.NET ChatBot Console App",
     date: "August 2023",
     description:
@@ -350,7 +363,7 @@ export const projects = [
     webapp: "https://chatbotwebapp.netlify.app/",
   },
   {
-    id: 2,
+    id: 6,
     title: "Contact Manager Web Application (React)",
     date: "December 2022",
     description:
@@ -363,7 +376,7 @@ export const projects = [
     webapp: "https://contactmanager.netlify.app/",
   },
   {
-    id: 3,
+    id: 7,
     title: "Restaurant Finder App",
     date: "August 2022",
     description:
@@ -376,7 +389,7 @@ export const projects = [
     webapp: "https://restaurantfinder.netlify.app/",
   },
   {
-    id: 4,
+    id: 8,
     title: "Virtual Drag & Drop",
     date: "Jan 2023",
     description:
